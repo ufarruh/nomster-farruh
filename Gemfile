@@ -22,6 +22,8 @@ gem 'sass-rails'
 gem 'will_paginate'
 
 gem 'simple_form'
+
+gem 'devise', '>= 3.2.4'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
