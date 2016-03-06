@@ -23,6 +23,10 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem 'simple_form'
 
+gem 'geocoder'
+
+gem "figaro", ">= 1.0.0"
+
 gem 'devise', '>= 3.2.4'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
