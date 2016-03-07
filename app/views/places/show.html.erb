@@ -37,84 +37,53 @@ function initMap() {
   </div>
 </div>
 
-<div class="booyah-box col-xs-10 col-xs-offset-1">
-<div class="clear"></div>
 
-
-<div class="clear"></div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add a comment</h4>
-      </div>
-      <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-
-        <div class="modal-body">
-          <%= f.input :message %>
-          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-        </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.submit "Submit", class: 'btn btn-primary' %>
-        </div>
-      <% end %>
-    
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Add Comment</h4>
-      </div>
-
-      
-      <div class="modal-body">
-      <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
-          <%= f.input :message %>
-          <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.submit "Submit", class: 'btn btn-primary' %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
 
 
 <div class="col-xs-10 col-xs-offset-1">
 <h1 class="pull-left">Comments</h1>
 
-
 <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#myModal">
-  Add comment
+<button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+    Add Comment
 </button>
+<div class="clear"></div>
 </div>
 
-<div class="clear"></div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Add Comment</h4>
+    </div>
+    <%= simple_form_for @comment, url: place_comments_path(@place)  do |f| %>
+    <div class="modal-body">
+    <%= f.input :message %>
+    <%= f.input :rating, as: :select, collection: Comment::RATINGS %>
+    </div>
+    <div class="modal_footer pull-right">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <%= f.submit "Submit", class: 'btn btn-primary' %>
+    <br />
+    </div>
+    <% end %>
+    </div>
+  </div>
+</div>
 
+
+      
 <% @place.comments.each do |comment| %>
   <div class="col-xs-12 col-sm-6">
-    <blockquote>
-      <% if comment.humanized_rating.present? %>
-        <b><%= comment.humanized_rating %></b> -
-      <% end %>
-      <%= comment.message %>
-      <small><%= comment.user.email %></small>
-    </blockquote>
+  <blockquote>
+  <% if comment.humanized_rating.present? %>
+  <b><%= comment.humanized_rating %></b> -
+  <% end %>
+  <%= comment.message %>
+  <small><%= comment.user.email %></small>
+  </blockquote>
   </div>
 <% end %>
 </div>
