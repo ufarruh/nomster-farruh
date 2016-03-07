@@ -4,8 +4,8 @@
   <br/><br/>
   <p><%= @place.description %></p>
  
+ 
  <%if @place.latitude.present? && @place.longitude.present? %>
-
 <script>
 function initMap() {
   var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
@@ -37,6 +37,13 @@ function initMap() {
   </div>
 </div>
 
+<div class="clear">
+<%= simple_form_for @comment, url: '#' do |f| %>
+<%= f.input :message %>
+<%= f.input :rating %>
+<%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+<% end %>
+</div>
 
 
 
