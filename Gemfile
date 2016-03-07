@@ -34,6 +34,7 @@ gem 'devise', '>= 3.2.4'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'will_paginate-bootstrap'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 
