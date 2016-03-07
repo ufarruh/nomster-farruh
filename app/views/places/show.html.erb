@@ -78,7 +78,7 @@ function initMap() {
         <h4 class="modal-title" id="myModalLabel">Add Comment</h4>
       </div>
 
-      <div class="col-xs-10 col-xs-offset-1">
+      
       <div class="modal-body">
       <%= simple_form_for @comment, url: place_comments_path(@place) do |f| %>
           <%= f.input :message %>
@@ -89,7 +89,6 @@ function initMap() {
           <%= f.submit "Submit", class: 'btn btn-primary' %>
         </div>
       <% end %>
-    </div>
     </div>
   </div>
 </div>
