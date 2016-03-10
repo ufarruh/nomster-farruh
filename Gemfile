@@ -15,6 +15,8 @@ gem 'sprockets', '2.11.0'
 gem 'sass-rails'
 gem 'will_paginate', '~> 3.0.6'
 
+gem 'mini_magick', '~> 4.4'
+
 gem 'simple_form'
 
 gem 'geocoder'
